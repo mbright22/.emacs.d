@@ -1,0 +1,13 @@
+2018-03-16  Dmitry Gutov  <dgutov@yandex.ru>
+
+	Merge commit 'cb905bdc728fb3b5f9fdff8836d71b62bd717eab' from mmm-mode
+
+2018-03-16  Dmitry Gutov  <dgutov@yandex.ru>
+
+	Add 'packages/mmm-mode/' from commit
+	'00c10a69c8c90178530219730ccea14ab634a74e'
+
+	git-subtree-dir: packages/mmm-mode git-subtree-mainline:
+	71566bae45a38c91bdbc6cd2ce25c91e609543e9 git-subtree-split:
+	00c10a69c8c90178530219730ccea14ab634a74e
+

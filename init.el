@@ -17,6 +17,7 @@
    t))
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/lisp/company-mode")
 (add-to-list 'load-path "~/.emacs.d/themes/")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;;(setq-default tab-width 2)
@@ -26,6 +27,8 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
+(setq vue-html-extra-indent 2)
 
 (package-initialize)
 
@@ -54,7 +57,7 @@
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(package-selected-packages
    (quote
-    (haskell-mode haskell-emacs markdown-mode flycheck multiple-cursors web-mode color-theme-sanityinc-tomorrow mc-extras diff-hl magit ##)))
+    (emmet-mode javascript-eslint use-package vue-mode haskell-mode haskell-emacs markdown-mode flycheck multiple-cursors web-mode color-theme-sanityinc-tomorrow mc-extras diff-hl magit ##)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -163,7 +166,7 @@
   (kill-line)
   (yank)
   (open-line 1)
-  (next-line 1)
+  (forward-line 1)
   (yank)
 )
 
@@ -179,3 +182,42 @@
 (autoload 'gfm-mode "markdown-mode"
    "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+;; (defun vue-mode/init-vue-mode ()
+;;   (use-package vue-mode
+;;                :config
+;;                ;; 0, 1, or 2, representing (respectively) none, low, and high coloring
+;;                (setq mmm-submode-decoration-level 0)))
+
+(defun configureFlycheck ()
+  "Configure flycheck in init hook."
+  (global-flycheck-mode)
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+  (flycheck-add-mode 'javascript-eslint 'vue-mode))
+
+(use-package flycheck
+  :ensure t
+  :init (configureFlycheck))
+
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+(provide 'init)
+
+;; (eval-after-load 'company-etags '(progn (add-to-list 'company-etags-modes 'web-mode)))
+;; (setq company-etags-everywhere '(php-mode html-mode web-mode nxml-mode))
+
+(add-hook 'web-mode-hook 'emmet-mode)
+
+(defun insertJestTemplate ()
+  "Insert Jest test template at current location."
+  (interactive)
+  (insert "it('', () => {\n    \n  });\n  "))
+(global-set-key (kbd "C-T") 'insertJestTemplate)
+
+(defun insertArrowFunction ()
+  "Insert arrow function template at current location."
+  (interactive)
+  (insert "() => {}"))
+(global-set-key (kbd "C-T") 'insertJestTemplate)
+(global-set-key (kbd "C-F") 'insertArrowFunction)
+;;;  init.el ends here
