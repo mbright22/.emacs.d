@@ -28,8 +28,6 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
-(setq vue-html-extra-indent 2)
-
 (package-initialize)
 
 ;;(defun my-generate-tab-stops (&optional width max)
@@ -220,4 +218,7 @@
   (insert "() => {}"))
 (global-set-key (kbd "C-T") 'insertJestTemplate)
 (global-set-key (kbd "C-F") 'insertArrowFunction)
+
+(setq vue-html-extra-indent 2)
+(setq js-indent-level 2)
 ;;;  init.el ends here
