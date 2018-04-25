@@ -227,4 +227,6 @@
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 (setq whitespace-line-column 100)
 (global-whitespace-mode t)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;;;  init.el ends here
