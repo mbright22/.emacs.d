@@ -221,4 +221,5 @@
 
 (setq vue-html-extra-indent 2)
 (setq js-indent-level 2)
+(setq css-indent-offset 2)
 ;;;  init.el ends here
