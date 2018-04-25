@@ -222,4 +222,9 @@
 (setq vue-html-extra-indent 2)
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
+
+(require 'whitespace)
+(setq whitespace-style '(face empty tabs lines-tail trailing))
+(setq whitespace-line-column 100)
+(global-whitespace-mode t)
 ;;;  init.el ends here
