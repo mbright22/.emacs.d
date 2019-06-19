@@ -5,6 +5,30 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+; packages required
+(use-package magit
+  :ensure t)
+(use-package iedit
+  :ensure t)
+(use-package multiple-cursors
+  :ensure t)
+(use-package color-theme-sanityinc-tomorrow
+  :ensure t)
+(use-package web-mode)
+(use-package stylus-mode)
+(use-package tickscript-mode)
+(use-package vue-mode)
+(use-package flycheck
+  :ensure t)
+
+
 (windmove-default-keybindings)
 
 ;disable backup
