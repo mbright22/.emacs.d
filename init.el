@@ -97,7 +97,7 @@
  )
 (set-frame-font "Inconsolata-13")
 
-(global-linum-mode t)
+(global-display-line-numbers-mode 1)
 (setq inhibit-startup-screen t)
 ;;(neotree-show)
 ;;(neotree-dir "~/workspace")
